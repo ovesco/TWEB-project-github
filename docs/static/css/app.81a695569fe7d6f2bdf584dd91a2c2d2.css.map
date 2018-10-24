@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.81a695569fe7d6f2bdf584dd91a2c2d2.css"],"names":[],"mappings":"AACA,sCAEI,sBAAwB,CAC3B,AACD,2BACI,SAAW,CACd","file":"app.81a695569fe7d6f2bdf584dd91a2c2d2.css","sourcesContent":["\n.fade-enter-active, .fade-leave-active {\n    -webkit-transition: opacity .5s;\n    transition: opacity .5s;\n}\n.fade-enter, .fade-leave-to {\n    opacity: 0;\n}\n"]}

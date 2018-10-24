@@ -12,10 +12,16 @@
                 </h3>
                 <form class="user-input p-3 m-3" @submit="formSubmit">
                     <div class="user-shadow"></div>
-                    <input type="text" class="mb-3"
+                    <input type="text" class="mb-3" v-bind:class="{error: error}"
                            placeholder="Github username to check" v-model="username" />
                     <input class="btn" type="submit" value="Check this out!" />
                 </form>
+
+                <div class="alert alert-danger" v-if="error">
+                    <h4 class="alert-heading">Howdy!</h4>
+                    <p>Seems like the user you search for doesn't
+                        exist or you ran out of github API queries for now!</p>
+                </div>
             </div>
         </div>
     </div>
@@ -28,6 +34,7 @@
             return {
                 searching: false,
                 username: '',
+                error: false,
             };
         },
         methods: {
@@ -35,9 +42,11 @@
                 const $this = this;
                 $this.searching = true;
                 this.$api.getUser(this.username).then(() => {
-                    $this.searching = false;
+                    $this.error = false;
                     $this.$router.push({ name: 'dashboard', params: { username: $this.username } });
                 }).catch(() => {
+                    $this.error = true;
+                }).finally(() => {
                     $this.searching = false;
                 });
             },
@@ -96,6 +105,10 @@
                 border:1px solid #8ec6fa;
                 padding-left:0.5em;
                 border-radius:2px;
+
+                &.error {
+                    border-color: red;
+                }
             }
         }
 
