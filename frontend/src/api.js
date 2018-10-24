@@ -29,7 +29,7 @@ export default class Api {
 
     get(part, username) {
         return new Promise((resolve, reject) => {
-            Axios.get(`http://${this.path}/api/${part}/${username}`)
+            Axios.get(`${this.path}/api/${part}/${username}`)
                 .then(res => resolve(res.data))
                 .catch((err) => {
                     reject(err);
