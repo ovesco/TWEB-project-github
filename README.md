@@ -46,3 +46,7 @@ using giphy public api.
 6. Run `npm run dev` from `/frontend` directory to launch web app
 7. Optional, if you want to build web app, run `npm run build` from frontend
 directory, this will build it in `/docs` file (used for github pages)
+
+## Check it out
+Project is hosted on heroku and github pages,
+[frontend can be accessed here](https://sysmoh.github.io/TWEB-project-github)
